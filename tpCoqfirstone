@@ -11,10 +11,51 @@ Hypothesis rac2_irr : is_irrat rac2.
 Hypothesis two_rat : is_rat (Rpower rac2 2).
 Hypothesis irrat_not_rat: forall x:R, ~(is_rat x) -> is_irrat x.
 
-Lemma irrat_alors:
+Lemma irrat_class:
   exists x:R, exists y:R,
 (is_irrat  x) /\ (is_irrat y) /\ (is_rat (Rpower x y)).
 Proof.
 
+(*Print classic.*)
 
-Print classic.
+elim (classic (is_rat (Rpower rac2 rac2))).
+intro.
+exists rac2. 
+exists rac2.
+
+split.
+apply rac2_irr.
+split.
+apply rac2_irr.
+assumption.
+
+
+
+intro.
+exists (Rpower rac2  rac2 ).
+exists rac2.
+
+split.
+
+apply irrat_not_rat.
+
+assumption.
+
+
+split.
+
+
+apply rac2_irr.
+
+
+rewrite Rpower_mult.
+
+rewrite two_rac2.
+
+apply two_rat.
+
+
+Qed.
+
+
+Print irrat_class.
