@@ -1,0 +1,26 @@
+Require Export ZArith.
+
+
+
+(*Inductive Z :Set:=
+|Z0:Z
+|Zpos:positive -> Z
+|Zneg:positive -> Z.
+
+Inductive positive :Set:=
+|xO  : positive -> positive
+|xI : positive -> positive
+|xH : positive.
+*)
+
+
+
+Definition pos_div4(n:positive):Z:=
+match n with
+|xO(xO p) => Zpos p
+|xI(xO p) => Zpos p
+|xO(xI p) => Zpos p
+|xI(xI p) => Zpos p
+|other => Z0
+end.
+

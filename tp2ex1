@@ -1,0 +1,11 @@
+Require Export ZArith.
+Open Scope Z_scope.
+
+Record Point : Set :=
+{Point_x : Z; Point_y : Z}.
+
+
+Definition manhatan_dist := ( x  y : Point ) : Z : =
+(zabs ( Point_x xpointx y)) + (Zabs (Point_y y_pointy y )) 
+
+
