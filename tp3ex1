@@ -1,0 +1,26 @@
+Require Import Rbase.
+Open Scope R_scope.
+Require Export Reals.
+Open Scope R_scope.
+
+Ltac split_Rmult := 
+  match goal with 
+  | |- ((?x1 * ?x2)%R <> 0%R) => 
+    apply Rmult_integral_contrapositive; split ; try split_Rmult
+  end.
+
+
+Lemma montrer_3xXx2 :  forall x:R,
+x <> 0 -> 3*x*2 <>0.
+Proof.
+intros.
+split_Rmult.
+discrR.
+assumption.
+discrR.
+
+
+
+
+
+

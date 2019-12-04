@@ -1,0 +1,10 @@
+Require Export Reals.
+Open Scope R_scope.
+Theorem Rpower_plus : forall x y z : R , Rpower z (x + y) = (Rpower z x) * (Rpower z y).
+Proof.
+
+intros x y z ; unfold Rpower.
+rewrite Rmult_plus_distr_r ; 
+rewrite 
+exp_plus. 
+auto.

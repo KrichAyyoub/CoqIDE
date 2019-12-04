@@ -1,0 +1,20 @@
+Require Import Rbase.
+Open Scope R_scope.
+Require Export Reals.
+Open Scope R_scope.
+
+Ltac split_Rmult := 
+  match goal with 
+  | |- ( 0%R < (?x1 * ?x2)%R) => 
+    apply Rmult_lt_0_compat; try split_Rmult
+  end.
+
+
+Lemma montrer_0inf : forall x:R , 
+0<x->0<3*x*2.
+Proof.
+intros.
+split_Rmult.
+prove_sup0.
+assumption.
+prove_sup0.
