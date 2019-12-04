@@ -1,0 +1,19 @@
+Require Import Nat.
+Require Extraction.
+
+
+
+
+Lemma double : forall n:nat,
+{m:nat|m=(plus n n)}.
+
+intro.
+exists (plus n n).
+auto.
+Qed.
+
+Extraction "double.ml" double.
+
+
+
+
